@@ -16,6 +16,10 @@ Website profissional de serviços de solicitadoria para cidadãos portugueses re
 
 ![Consulta](docs/screenshots/consulta.png)
 
+**Contactos**
+
+![Contactos](docs/screenshots/contactos.png)
+
 ### Backoffice (Administração)
 
 **Login**
@@ -42,6 +46,9 @@ Website profissional de serviços de solicitadoria para cidadãos portugueses re
 
 - **Interface Bilingue** — Suporte completo em Português e Francês com seletor de idioma
 - **Design Responsivo** — Adaptado a dispositivos móveis, tablets e desktop
+- **Novo Layout Claro** — Esquema de cores azul claro moderno, fundo suave (#f0f6fb), tipografia apurada e sombras subtis
+- **Hero Banner Destacado** — Secção hero de altura aumentada (600 px mínimo) com gradiente, títulos maiores e sombras de texto
+- **Cabeçalho Transparente e Fixo** — No índice e na homepage, o header sobrepõe o hero de forma transparente e torna-se sólido ao fazer scroll (classes `header--transparent` + `has-banner-header`)
 - **8 Áreas de Serviço** com páginas detalhadas:
   1. Direito da Família
   2. Direito Imobiliário
@@ -53,6 +60,7 @@ Website profissional de serviços de solicitadoria para cidadãos portugueses re
   8. Fiscalidade
 - **Marcação de Consultas Online** — Formulário com validação completa, escolha de serviço, data e horário
 - **Fluxo de Pagamento Antecipado** — Processo em 4 passos (pedido → confirmação → pagamento → consulta)
+- **Página de Contactos (PT/FR)** — Contactos com cartões de informação (email, telefone/WhatsApp, morada, horário) e formulário de mensagem geral
 - **Conteúdo Dinâmico** — Carregamento de conteúdo via JSON, editável sem alterar HTML
 - **Animações Suaves** — Efeitos fade-in, hover e transições CSS
 - **Navegação com Menu Mobile** — Hamburger menu responsivo com acessibilidade (ARIA)
@@ -89,18 +97,21 @@ Website profissional de serviços de solicitadoria para cidadãos portugueses re
 website-solicitador/
 ├── index.html                  # Página inicial (PT)
 ├── consulta.html               # Marcação de consulta (PT)
+├── contactos.html              # Página de contactos (PT)
 ├── fr/                         # Versão Francesa
 │   ├── index.html
 │   ├── consulta.html
+│   ├── contact.html            # Página de contactos (FR)
 │   └── services/               # Páginas de serviço (FR)
 ├── services/                   # Páginas de serviço detalhadas (PT)
 ├── css/
-│   └── style.css               # Estilos do website
+│   └── style.css               # Estilos do website (esquema de cores claro)
 ├── js/
-│   ├── main.js                 # Funcionalidades principais
+│   ├── main.js                 # Funcionalidades principais (header scroll, menu mobile)
 │   └── content-loader.js       # Carregamento dinâmico de conteúdo
 ├── php/
-│   └── contact.php             # Processamento do formulário de consulta
+│   ├── contact.php             # Processamento do formulário de consulta
+│   └── contact-simple.php      # Processamento do formulário de contacto geral
 ├── data/
 │   ├── content-pt.json         # Conteúdo em Português
 │   └── content-fr.json         # Conteúdo em Francês
