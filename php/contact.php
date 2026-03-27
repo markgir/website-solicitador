@@ -63,6 +63,13 @@ if (empty($servico)) {
 
 if (empty($data)) {
     $errors[] = 'Selecione uma data para a consulta.';
+} else {
+    $dateObj = DateTime::createFromFormat('Y-m-d', $data);
+    if (!$dateObj || $dateObj->format('Y-m-d') !== $data) {
+        $errors[] = 'Data inválida.';
+    } elseif ($dateObj->getTimestamp() < strtotime('+2 days midnight')) {
+        $errors[] = 'A data da consulta deve ser com pelo menos 2 dias de antecedência.';
+    }
 }
 
 if (empty($horario)) {
@@ -125,8 +132,8 @@ Este pedido foi enviado através do formulário do website.
 Consentimento RGPD: Aceite
 ";
 
-// Email headers
-$headers  = "From: $email\r\n";
+// Email headers — use trusted From address to prevent header injection
+$headers  = "From: $adminEmail\r\n";
 $headers .= "Reply-To: $email\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
