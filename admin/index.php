@@ -11,6 +11,16 @@ if (isLoggedIn()) {
 }
 
 $error = '';
+$setupPassword = '';
+
+// Ensure database is initialized (creates setup password file on first run)
+getDB();
+
+// Check for first-time setup password file
+$setupFile = __DIR__ . '/../data/.setup_password';
+if (file_exists($setupFile)) {
+    $setupPassword = trim(file_get_contents($setupFile));
+}
 
 // Handle login form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -20,6 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($username) || empty($password)) {
         $error = 'Por favor, preencha todos os campos.';
     } elseif (attemptLogin($username, $password)) {
+        // Remove setup password file after successful first login
+        if (file_exists($setupFile)) {
+            unlink($setupFile);
+        }
         header('Location: dashboard.php');
         exit;
     } else {
@@ -43,6 +57,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <?php if ($error): ?>
                 <div class="login-error"><?php echo htmlspecialchars($error); ?></div>
+            <?php endif; ?>
+
+            <?php if ($setupPassword): ?>
+                <div style="background: #d1ecf1; color: #0c5460; padding: 0.75rem; border-radius: 8px; font-size: 0.85rem; margin-bottom: 1rem; border: 1px solid #bee5eb;">
+                    <strong>Configuração inicial:</strong><br>
+                    Utilizador: <code>admin</code><br>
+                    Palavra-passe: <code><?php echo htmlspecialchars($setupPassword); ?></code><br>
+                    <em>Altere a palavra-passe após o primeiro acesso.</em>
+                </div>
             <?php endif; ?>
 
             <form method="POST" action="index.php">

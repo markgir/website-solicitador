@@ -122,8 +122,8 @@ include __DIR__ . '/includes/header.php';
                 <div class="detail-value">SQLite 3</div>
             </div>
             <div class="detail-item">
-                <div class="detail-label">Credenciais Padrão</div>
-                <div class="detail-value">admin / admin123 (altere imediatamente)</div>
+                <div class="detail-label">Segurança</div>
+                <div class="detail-value">Altere a palavra-passe padrão imediatamente após o primeiro acesso.</div>
             </div>
         </div>
     </div>

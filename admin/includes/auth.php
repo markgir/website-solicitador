@@ -67,12 +67,10 @@ function getAdminName() {
 }
 
 /**
- * Generate CSRF token
+ * Generate CSRF token — regenerated per request for enhanced security
  */
 function generateCSRFToken() {
-    if (empty($_SESSION['csrf_token'])) {
-        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-    }
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
     return $_SESSION['csrf_token'];
 }
 

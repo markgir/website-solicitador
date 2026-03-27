@@ -1,14 +1,4 @@
 {
-    "hero": {
-        "cta_primary": "Marcar Consulta",
-        "cta_secondary": "Ver Serviços",
-        "subtitle": "Acompanhamos cidadãos portugueses residentes e emigrantes em todas as questões jurídicas e administrativas. Resolva os seus assuntos em Portugal com segurança e proximidade, onde quer que esteja.",
-        "title": "Assessoria Jurídica de Confiança para Portugueses e Emigrantes"
-    },
-    "services": {
-        "subtitle": "Oferecemos um leque completo de serviços jurídicos adaptados às necessidades de quem vive em Portugal e no estrangeiro.",
-        "title": "Áreas de Atuação"
-    },
     "about": {
         "cta": "Agendar Consulta Gratuita",
         "text": "Somos um gabinete de solicitadoria dedicado a servir cidadãos portugueses residentes em Portugal e emigrantes espalhados pelo mundo — em especial na comunidade francófona. Sabemos que a distância não deve ser um obstáculo quando se trata de resolver questões jurídicas e administrativas no seu país de origem.\n\nCom atendimento personalizado em português e francês, garantimos uma comunicação clara e eficaz em cada etapa do processo. Desde a obtenção de documentos até à gestão de heranças, compra de imóveis ou questões de nacionalidade, tratamos de tudo para que não precise de se deslocar.\n\nConte connosco para proteger os seus direitos e interesses em Portugal, com a dedicação e a proximidade que merece.",
@@ -20,5 +10,15 @@
     },
     "footer": {
         "description": "Serviços de solicitadoria para cidadãos portugueses e emigrantes. Atendimento em português e francês."
+    },
+    "hero": {
+        "cta_primary": "Marcar Consulta",
+        "cta_secondary": "Ver Serviços",
+        "subtitle": "Acompanhamos cidadãos portugueses residentes e emigrantes em todas as questões jurídicas e administrativas. Resolva os seus assuntos em Portugal com segurança e proximidade, onde quer que esteja.",
+        "title": "Assessoria Jurídica de Confiança para Portugueses e Emigrantes"
+    },
+    "services": {
+        "subtitle": "Oferecemos um leque completo de serviços jurídicos adaptados às necessidades de quem vive em Portugal e no estrangeiro.",
+        "title": "Áreas de Atuação"
     }
 }

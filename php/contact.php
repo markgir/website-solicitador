@@ -79,6 +79,7 @@ if (!empty($errors)) {
 }
 
 // Store in database
+$dbStored = false;
 try {
     $db = getDB();
     $stmt = $db->prepare("
@@ -86,6 +87,7 @@ try {
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     ");
     $stmt->execute([$nome, $email, $telefone, $nif, $morada, $servico, $data, $horario, $mensagem]);
+    $dbStored = true;
 } catch (Exception $e) {
     error_log("Failed to store consultation in database: " . $e->getMessage());
 }

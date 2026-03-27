@@ -1,14 +1,4 @@
 {
-    "hero": {
-        "cta_primary": "Prendre Rendez-vous",
-        "cta_secondary": "Voir les Services",
-        "subtitle": "Nous accompagnons les citoyens portugais résidents et expatriés francophones dans toutes leurs démarches juridiques et administratives au Portugal. Réglez vos affaires en toute sécurité et proximité, où que vous soyez.",
-        "title": "Services Juridiques pour Portugais et Expatriés"
-    },
-    "services": {
-        "subtitle": "Nous proposons une gamme complète de services juridiques adaptés aux besoins de ceux qui vivent au Portugal et à l'étranger.",
-        "title": "Domaines d'Intervention"
-    },
     "about": {
         "cta": "Prendre Rendez-vous Gratuit",
         "text": "Notre cabinet est dédié aux citoyens portugais résidents au Portugal ainsi qu'aux expatriés et luso-descendants installés dans le monde francophone — en France, en Suisse et ailleurs. Nous savons que la distance ne doit pas être un obstacle lorsqu'il s'agit de résoudre des questions juridiques et administratives dans votre pays d'origine.\n\nAvec un accompagnement personnalisé en portugais et en français, nous garantissons une communication claire et efficace à chaque étape du processus. De l'obtention de documents à la gestion de successions, en passant par l'achat immobilier ou les questions de nationalité, nous nous occupons de tout pour que vous n'ayez pas à vous déplacer.\n\nComptez sur nous pour protéger vos droits et vos intérêts au Portugal, avec le dévouement et la proximité que vous méritez.",
@@ -20,5 +10,15 @@
     },
     "footer": {
         "description": "Services juridiques pour citoyens portugais et expatriés. Accompagnement en portugais et en français."
+    },
+    "hero": {
+        "cta_primary": "Prendre Rendez-vous",
+        "cta_secondary": "Voir les Services",
+        "subtitle": "Nous accompagnons les citoyens portugais résidents et expatriés francophones dans toutes leurs démarches juridiques et administratives au Portugal. Réglez vos affaires en toute sécurité et proximité, où que vous soyez.",
+        "title": "Services Juridiques pour Portugais et Expatriés"
+    },
+    "services": {
+        "subtitle": "Nous proposons une gamme complète de services juridiques adaptés aux besoins de ceux qui vivent au Portugal et à l'étranger.",
+        "title": "Domaines d'Intervention"
     }
 }

@@ -60,7 +60,8 @@
           var paragraphs = data.about.text.split('\n\n');
           var pElements = aboutContainer.querySelectorAll('p');
           for (var i = 0; i < paragraphs.length && i < pElements.length; i++) {
-            pElements[i].innerHTML = paragraphs[i].replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            // Use textContent to avoid XSS, then apply bold formatting safely via DOM
+            applyFormattedText(pElements[i], paragraphs[i]);
           }
         }
       }
@@ -98,6 +99,23 @@
     if (!text) return;
     var el = document.querySelector(selector);
     if (el) el.textContent = text;
+  }
+
+  /**
+   * Apply text with **bold** formatting using safe DOM manipulation (no innerHTML).
+   */
+  function applyFormattedText(element, text) {
+    element.textContent = '';
+    var parts = text.split(/\*\*(.*?)\*\*/);
+    for (var i = 0; i < parts.length; i++) {
+      if (i % 2 === 0) {
+        element.appendChild(document.createTextNode(parts[i]));
+      } else {
+        var strong = document.createElement('strong');
+        strong.textContent = parts[i];
+        element.appendChild(strong);
+      }
+    }
   }
 
 })();

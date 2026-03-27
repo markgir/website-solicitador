@@ -24,13 +24,13 @@ function getDB() {
     $db->exec('PRAGMA foreign_keys=ON');
 
     if ($isNew) {
-        initDatabase($db);
+        initDatabase($db, $dbDir);
     }
 
     return $db;
 }
 
-function initDatabase(PDO $db) {
+function initDatabase(PDO $db, $dbDir) {
     // Admin users table
     $db->exec("
         CREATE TABLE IF NOT EXISTS admin_users (
@@ -75,10 +75,16 @@ function initDatabase(PDO $db) {
         )
     ");
 
-    // Create default admin user (admin / admin123 — must be changed on first login)
-    $defaultPassword = password_hash('admin123', PASSWORD_DEFAULT);
+    // Create default admin user with a random initial password
+    // The password is stored in a setup file that is displayed once during first login
+    $initialPassword = bin2hex(random_bytes(6)); // 12 character hex password
+    $defaultPassword = password_hash($initialPassword, PASSWORD_DEFAULT);
     $db->prepare("INSERT OR IGNORE INTO admin_users (username, password_hash, name) VALUES (?, ?, ?)")
        ->execute(['admin', $defaultPassword, 'Administrador']);
+
+    // Store initial password for first-login display
+    $setupFile = $dbDir . '/.setup_password';
+    file_put_contents($setupFile, $initialPassword);
 
     // Seed default content
     seedDefaultContent($db);
