@@ -78,8 +78,8 @@ Consentimento RGPD: Aceite
 Este contacto foi enviado através do formulário do website.
 ";
 
-// Email headers
-$headers  = "From: $email\r\n";
+// Email headers — use trusted From address to prevent header injection
+$headers  = "From: $adminEmail\r\n";
 $headers .= "Reply-To: $email\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
@@ -104,7 +104,9 @@ $siteName
 $clientHeaders  = "From: $adminEmail\r\n";
 $clientHeaders .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-mail($email, $clientSubject, $clientBody, $clientHeaders);
+if ($mailSent) {
+    mail($email, $clientSubject, $clientBody, $clientHeaders);
+}
 
 echo json_encode([
     'success' => true,

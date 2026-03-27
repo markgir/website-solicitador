@@ -175,14 +175,18 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(function (response) { return response.json(); })
         .then(function (data) {
-          contactForm.style.display = 'none';
-          var successMsg = document.querySelector('.form-success');
-          if (successMsg) successMsg.style.display = 'block';
+          if (submitBtn) submitBtn.disabled = false;
+          if (data.success) {
+            contactForm.style.display = 'none';
+            var successMsg = document.querySelector('.form-success');
+            if (successMsg) successMsg.style.display = 'block';
+          } else {
+            alert(data.message || 'Erro ao enviar a mensagem. Tente novamente.');
+          }
         })
         .catch(function () {
-          contactForm.style.display = 'none';
-          var successMsg = document.querySelector('.form-success');
-          if (successMsg) successMsg.style.display = 'block';
+          if (submitBtn) submitBtn.disabled = false;
+          alert('Não foi possível enviar a mensagem. Verifique a sua ligação e tente novamente.');
         });
       }
     });
