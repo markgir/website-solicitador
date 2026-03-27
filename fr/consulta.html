@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prenez rendez-vous pour une consultation juridique. Accompagnement personnalisé en portugais et en français pour les citoyens portugais et expatriés.">
+    <meta name="keywords" content="prendre rendez-vous, consultation, solicitador, conseil juridique, expatriés portugais, luso-descendants">
+    <meta name="author" content="Solicitador">
+    <meta property="og:title" content="Prendre Rendez-vous · Solicitador">
+    <meta property="og:description" content="Prenez rendez-vous pour une consultation juridique en ligne. Accompagnement en portugais et en français.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <title>Prendre Rendez-vous · Solicitador</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">Solicitad<span class="accent">o</span>r</a>
+            <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="consulta.html" class="active">Consultation</a></li>
+                    <li><a href="index.html#apropos">À propos</a></li>
+                </ul>
+            </nav>
+            <div class="lang-switch">
+                <a href="../consulta.html" lang="pt">PT</a>
+                <a href="consulta.html" class="active" lang="fr">FR</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content fade-in">
+                <h1>Prendre Rendez-vous</h1>
+                <p>Remplissez le formulaire ci-dessous pour planifier votre consultation. Nous vous contacterons pour confirmer la date, l'horaire et les instructions de paiement.</p>
+            </div>
+        </section>
+
+        <!-- Booking Steps -->
+        <section class="booking-section">
+            <div class="booking-steps fade-in">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Demande</h3>
+                    <p>Remplissez le formulaire avec vos coordonnées et le sujet que vous souhaitez traiter.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Confirmation</h3>
+                    <p>Recevez la confirmation de la date et de l'heure par email.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Paiement</h3>
+                    <p>Effectuez le paiement anticipé selon les instructions reçues.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Consultation</h3>
+                    <p>Assistez à la consultation et recevez le reçu correspondant.</p>
+                </div>
+            </div>
+
+            <!-- Consultation Form -->
+            <form class="consultation-form fade-in" id="consultation-form" action="../php/contact.php" method="POST" novalidate>
+                <h2>Informations pour la Prise de Rendez-vous</h2>
+
+                <!-- Row 1: Nom + Email -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nome">Nom Complet <span aria-hidden="true">*</span></label>
+                        <input type="text" id="nome" name="nome" required autocomplete="name" aria-required="true">
+                        <span class="error-message">Veuillez saisir votre nom complet.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email <span aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" required autocomplete="email" aria-required="true">
+                        <span class="error-message">Veuillez saisir une adresse email valide.</span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Téléphone + NIF -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefone">Téléphone <span aria-hidden="true">*</span></label>
+                        <input type="tel" id="telefone" name="telefone" required autocomplete="tel" aria-required="true">
+                        <span class="error-message">Veuillez saisir votre numéro de téléphone.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="nif">NIF</label>
+                        <input type="text" id="nif" name="nif" pattern="[0-9]{9}" placeholder="9 chiffres" inputmode="numeric" autocomplete="off">
+                        <span class="error-message">Le NIF doit contenir exactement 9 chiffres.</span>
+                    </div>
+                </div>
+
+                <!-- Full width: Adresse -->
+                <div class="form-group">
+                    <label for="morada">Adresse Complète</label>
+                    <input type="text" id="morada" name="morada" placeholder="Pour l'émission du reçu" autocomplete="street-address">
+                    <span class="error-message">Veuillez saisir votre adresse.</span>
+                </div>
+
+                <!-- Row 3: Service + Date -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="servico">Service Souhaité <span aria-hidden="true">*</span></label>
+                        <select id="servico" name="servico" required aria-required="true">
+                            <option value="">Sélectionnez un service</option>
+                            <option value="direito-familia">Droit de la Famille</option>
+                            <option value="direito-imobiliario">Droit Immobilier</option>
+                            <option value="herancas">Successions et Héritages</option>
+                            <option value="contratos">Contrats</option>
+                            <option value="documentacao">Documents et Registres</option>
+                            <option value="cobrancas">Recouvrement de Créances</option>
+                            <option value="nacionalidade">Nationalité et Citoyenneté</option>
+                            <option value="fiscalidade">Fiscalité</option>
+                        </select>
+                        <span class="error-message">Veuillez sélectionner le service souhaité.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="consultation-date">Date Souhaitée <span aria-hidden="true">*</span></label>
+                        <input type="date" id="consultation-date" name="data" required aria-required="true">
+                        <span class="error-message">Veuillez sélectionner une date valide.</span>
+                    </div>
+                </div>
+
+                <!-- Full width: Horaire -->
+                <div class="form-group">
+                    <label for="horario">Horaire Préféré <span aria-hidden="true">*</span></label>
+                    <select id="horario" name="horario" required aria-required="true">
+                        <option value="">Sélectionnez un horaire</option>
+                        <option value="09:00-10:00">09:00 – 10:00</option>
+                        <option value="10:00-11:00">10:00 – 11:00</option>
+                        <option value="11:00-12:00">11:00 – 12:00</option>
+                        <option value="14:00-15:00">14:00 – 15:00</option>
+                        <option value="15:00-16:00">15:00 – 16:00</option>
+                        <option value="16:00-17:00">16:00 – 17:00</option>
+                    </select>
+                    <span class="error-message">Veuillez sélectionner l'horaire préféré.</span>
+                </div>
+
+                <!-- Full width: Message -->
+                <div class="form-group">
+                    <label for="mensagem">Message / Description du Sujet</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Décrivez brièvement le sujet que vous souhaitez aborder lors de la consultation."></textarea>
+                    <span class="error-message">Veuillez décrire brièvement le sujet.</span>
+                </div>
+
+                <!-- Form Note -->
+                <div class="form-note">
+                    <p><strong>Note :</strong> Le NIF, l'adresse et le nom sont des données obligatoires pour l'émission du reçu.</p>
+                    <p>Le paiement anticipé confirme la prise de rendez-vous.</p>
+                    <p>La consultation sera enregistrée pour la protection des deux parties.</p>
+                </div>
+
+                <!-- Consent -->
+                <div class="consent-group">
+                    <input type="checkbox" id="consent" name="consent" required aria-required="true">
+                    <label for="consent">J'ai lu et j'accepte la politique de confidentialité et j'autorise le traitement de mes données personnelles aux fins de la prestation de services juridiques (RGPD).</label>
+                </div>
+
+                <!-- Submit -->
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary">Envoyer la Demande de Consultation</button>
+                </div>
+            </form>
+
+            <!-- Success Message -->
+            <div class="form-success" id="form-success" role="alert">
+                <h3>Demande Envoyée avec Succès !</h3>
+                <p>Votre demande de consultation a été reçue. Vous recevrez un email de confirmation avec la date, l'heure et les instructions pour effectuer le paiement anticipé. Après confirmation du paiement, votre consultation sera programmée.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>Solicitad<span class="accent">o</span>r</h4>
+                <p>Services juridiques pour citoyens portugais et expatriés. Accompagnement en portugais et en français.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>Email : <a href="mailto:info@solicitador.pt">info@solicitador.pt</a></p>
+                <p>Téléphone : <a href="tel:+351200000000">+351 200 000 000</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Solicitador. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
