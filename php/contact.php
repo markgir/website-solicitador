@@ -2,7 +2,7 @@
 /**
  * Solicitador Website - Contact / Consultation Form Handler
  *
- * Processes consultation booking requests and sends notification emails.
+ * Processes consultation booking requests, stores in database, and sends notification emails.
  */
 
 header('Content-Type: application/json; charset=utf-8');
@@ -14,10 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Configuration
 // Configuration — replace with the actual solicitor email before deployment
 $adminEmail = 'info@example.com';
 $siteName   = 'Solicitador - Serviços Jurídicos';
+
+// Include database for storing consultations
+require_once __DIR__ . '/../admin/includes/db.php';
 
 // Sanitize input
 function sanitizeInput($value) {
@@ -74,6 +76,18 @@ if (!$consent) {
 if (!empty($errors)) {
     echo json_encode(['success' => false, 'message' => implode(' ', $errors)]);
     exit;
+}
+
+// Store in database
+try {
+    $db = getDB();
+    $stmt = $db->prepare("
+        INSERT INTO consultations (nome, email, telefone, nif, morada, servico, data_consulta, horario, mensagem)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ");
+    $stmt->execute([$nome, $email, $telefone, $nif, $morada, $servico, $data, $horario, $mensagem]);
+} catch (Exception $e) {
+    error_log("Failed to store consultation in database: " . $e->getMessage());
 }
 
 // Prepare email content
