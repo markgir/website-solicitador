@@ -17,6 +17,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* --- Transparent Header on Scroll (homepage banner) --- */
+  var siteHeader = document.getElementById('site-header');
+  if (siteHeader && siteHeader.classList.contains('header--transparent')) {
+    function updateHeaderOnScroll() {
+      if (window.scrollY > 60) {
+        siteHeader.classList.add('header--scrolled');
+      } else {
+        siteHeader.classList.remove('header--scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
+    updateHeaderOnScroll();
+  }
+
   /* --- Scroll Fade-In Animation --- */
   const fadeElements = document.querySelectorAll('.fade-in');
 
@@ -111,6 +125,68 @@ document.addEventListener('DOMContentLoaded', function () {
           consultationForm.style.display = 'none';
           var successMsg = document.querySelector('.form-success');
           if (successMsg) successMsg.style.display = 'block';
+        });
+      }
+    });
+  }
+
+  /* --- Contact Form Validation (contactos page) --- */
+  var contactForm = document.getElementById('contact-form');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var isValid = true;
+
+      // Clear previous errors
+      contactForm.querySelectorAll('.form-group').forEach(function (group) {
+        group.classList.remove('error');
+      });
+
+      // Required fields
+      contactForm.querySelectorAll('[required]').forEach(function (field) {
+        if (!field.value.trim()) {
+          isValid = false;
+          var group = field.closest('.form-group');
+          if (group) group.classList.add('error');
+        }
+      });
+
+      // Email validation
+      var emailField = contactForm.querySelector('input[type="email"]');
+      if (emailField && emailField.value.trim()) {
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(emailField.value.trim())) {
+          isValid = false;
+          var group = emailField.closest('.form-group');
+          if (group) group.classList.add('error');
+        }
+      }
+
+      if (isValid) {
+        var formData = new FormData(contactForm);
+        var submitBtn = contactForm.querySelector('[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+
+        fetch('php/contact-simple.php', {
+          method: 'POST',
+          body: formData
+        })
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+          if (submitBtn) submitBtn.disabled = false;
+          if (data.success) {
+            contactForm.style.display = 'none';
+            var successMsg = document.querySelector('.form-success');
+            if (successMsg) successMsg.style.display = 'block';
+          } else {
+            alert(data.message || 'Erro ao enviar a mensagem. Tente novamente.');
+          }
+        })
+        .catch(function () {
+          if (submitBtn) submitBtn.disabled = false;
+          alert('Não foi possível enviar a mensagem. Verifique a sua ligação e tente novamente.');
         });
       }
     });
