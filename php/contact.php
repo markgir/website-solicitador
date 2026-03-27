@@ -15,7 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Configuration
-$adminEmail = 'info@example.com'; // Replace with actual solicitor email
+// Configuration — replace with the actual solicitor email before deployment
+$adminEmail = 'info@example.com';
 $siteName   = 'Solicitador - Serviços Jurídicos';
 
 // Sanitize input
