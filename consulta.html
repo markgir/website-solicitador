@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Marque a sua consulta de solicitadoria. Atendimento personalizado em português e francês para cidadãos portugueses e emigrantes.">
+    <meta name="keywords" content="marcar consulta, solicitador, consulta jurídica, emigrantes portugueses, assessoria jurídica">
+    <meta name="author" content="Solicitador">
+    <meta property="og:title" content="Marcar Consulta · Solicitador">
+    <meta property="og:description" content="Marque a sua consulta de solicitadoria online. Atendimento em português e francês.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_PT">
+    <title>Marcar Consulta · Solicitador</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">Solicitad<span class="accent">o</span>r</a>
+            <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="consulta.html" class="active">Consulta</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                </ul>
+            </nav>
+            <div class="lang-switch">
+                <a href="consulta.html" class="active" lang="pt">PT</a>
+                <a href="fr/consulta.html" lang="fr">FR</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content fade-in">
+                <h1>Marcar Consulta</h1>
+                <p>Preencha o formulário abaixo para agendar a sua consulta. Entraremos em contacto para confirmar a data, horário e instruções de pagamento.</p>
+            </div>
+        </section>
+
+        <!-- Booking Steps -->
+        <section class="booking-section">
+            <div class="booking-steps fade-in">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Pedido de Consulta</h3>
+                    <p>Preencha o formulário com os seus dados e o assunto que pretende tratar.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Confirmação</h3>
+                    <p>Receba a confirmação da data e hora por email.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Pagamento Antecipado</h3>
+                    <p>Efetue o pagamento antecipado conforme as instruções recebidas.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Consulta</h3>
+                    <p>Compareça à consulta e receba o respetivo recibo.</p>
+                </div>
+            </div>
+
+            <!-- Consultation Form -->
+            <form class="consultation-form fade-in" id="consultation-form" action="php/contact.php" method="POST" novalidate>
+                <h2>Dados para Marcação</h2>
+
+                <!-- Row 1: Nome + Email -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo <span aria-hidden="true">*</span></label>
+                        <input type="text" id="nome" name="nome" required autocomplete="name" aria-required="true">
+                        <span class="error-message">Por favor, introduza o seu nome completo.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email <span aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" required autocomplete="email" aria-required="true">
+                        <span class="error-message">Por favor, introduza um endereço de email válido.</span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Telefone + NIF -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefone">Telefone <span aria-hidden="true">*</span></label>
+                        <input type="tel" id="telefone" name="telefone" required autocomplete="tel" aria-required="true">
+                        <span class="error-message">Por favor, introduza o seu número de telefone.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="nif">NIF</label>
+                        <input type="text" id="nif" name="nif" pattern="[0-9]{9}" placeholder="9 dígitos" inputmode="numeric" autocomplete="off">
+                        <span class="error-message">O NIF deve conter exatamente 9 dígitos.</span>
+                    </div>
+                </div>
+
+                <!-- Full width: Morada -->
+                <div class="form-group">
+                    <label for="morada">Morada Completa</label>
+                    <input type="text" id="morada" name="morada" placeholder="Para emissão de recibo" autocomplete="street-address">
+                    <span class="error-message">Por favor, introduza a sua morada.</span>
+                </div>
+
+                <!-- Row 3: Serviço + Data -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="servico">Serviço Pretendido <span aria-hidden="true">*</span></label>
+                        <select id="servico" name="servico" required aria-required="true">
+                            <option value="">Selecione um serviço</option>
+                            <option value="direito-familia">Direito da Família</option>
+                            <option value="direito-imobiliario">Direito Imobiliário</option>
+                            <option value="herancas">Heranças e Sucessões</option>
+                            <option value="contratos">Contratos</option>
+                            <option value="documentacao">Documentação e Registos</option>
+                            <option value="cobrancas">Cobranças</option>
+                            <option value="nacionalidade">Nacionalidade e Cidadania</option>
+                            <option value="fiscalidade">Fiscalidade</option>
+                        </select>
+                        <span class="error-message">Por favor, selecione o serviço pretendido.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="consultation-date">Data Pretendida <span aria-hidden="true">*</span></label>
+                        <input type="date" id="consultation-date" name="data" required aria-required="true">
+                        <span class="error-message">Por favor, selecione uma data válida.</span>
+                    </div>
+                </div>
+
+                <!-- Full width: Horário -->
+                <div class="form-group">
+                    <label for="horario">Horário Preferido <span aria-hidden="true">*</span></label>
+                    <select id="horario" name="horario" required aria-required="true">
+                        <option value="">Selecione um horário</option>
+                        <option value="09:00-10:00">09:00 – 10:00</option>
+                        <option value="10:00-11:00">10:00 – 11:00</option>
+                        <option value="11:00-12:00">11:00 – 12:00</option>
+                        <option value="14:00-15:00">14:00 – 15:00</option>
+                        <option value="15:00-16:00">15:00 – 16:00</option>
+                        <option value="16:00-17:00">16:00 – 17:00</option>
+                    </select>
+                    <span class="error-message">Por favor, selecione o horário preferido.</span>
+                </div>
+
+                <!-- Full width: Mensagem -->
+                <div class="form-group">
+                    <label for="mensagem">Mensagem / Descrição do Assunto</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva brevemente o assunto que pretende tratar na consulta."></textarea>
+                    <span class="error-message">Por favor, descreva brevemente o assunto.</span>
+                </div>
+
+                <!-- Form Note -->
+                <div class="form-note">
+                    <p><strong>Nota:</strong> NIF, morada e nome são dados obrigatórios para a emissão de recibo.</p>
+                    <p>O pagamento antecipado confirma a marcação da consulta.</p>
+                    <p>A consulta será gravada/registada para proteção de ambas as partes.</p>
+                </div>
+
+                <!-- Consent -->
+                <div class="consent-group">
+                    <input type="checkbox" id="consent" name="consent" required aria-required="true">
+                    <label for="consent">Li e aceito a política de privacidade e autorizo o tratamento dos meus dados pessoais para efeitos de prestação de serviços de solicitadoria.</label>
+                </div>
+
+                <!-- Submit -->
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary">Enviar Pedido de Consulta</button>
+                </div>
+            </form>
+
+            <!-- Success Message -->
+            <div class="form-success" id="form-success" role="alert">
+                <h3>Pedido Enviado com Sucesso!</h3>
+                <p>O seu pedido de consulta foi recebido. Irá receber um email de confirmação com a data, hora e instruções para efetuar o pagamento antecipado. Após a confirmação do pagamento, a sua consulta ficará agendada.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>Solicitad<span class="accent">o</span>r</h4>
+                <p>Serviços de solicitadoria para cidadãos portugueses e emigrantes. Atendimento em português e francês.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Email: <a href="mailto:info@solicitador.pt">info@solicitador.pt</a></p>
+                <p>Telefone: <a href="tel:+351200000000">+351 200 000 000</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Solicitador. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
