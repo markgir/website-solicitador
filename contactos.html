@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contacto com o nosso gabinete de solicitadoria. Envie-nos uma mensagem ou ligue-nos. Atendimento em português e francês.">
+    <meta name="keywords" content="contacto, solicitador, contactar solicitador, email, telefone, morada">
+    <meta name="author" content="Solicitador">
+    <meta property="og:title" content="Contactos · Solicitador">
+    <meta property="og:description" content="Entre em contacto com o nosso gabinete de solicitadoria. Atendimento em português e francês.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_PT">
+    <title>Contactos · Solicitador</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">Solicitad<span class="accent">o</span>r</a>
+            <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="consulta.html">Consulta</a></li>
+                    <li><a href="contactos.html" class="active">Contactos</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                </ul>
+            </nav>
+            <div class="lang-switch">
+                <a href="contactos.html" class="active" lang="pt">PT</a>
+                <a href="fr/contact.html" lang="fr">FR</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Banner -->
+        <section class="contact-hero">
+            <div>
+                <h1>Fale Connosco</h1>
+                <p>Estamos aqui para responder a todas as suas questões. Entre em contacto connosco.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="contact-layout">
+
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@solicitador.pt">info@solicitador.pt</a></p>
+                            <p>Respondemos em 24 horas úteis.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">📞</div>
+                        <div>
+                            <h4>Telefone / WhatsApp</h4>
+                            <p><a href="tel:+351200000000">+351 200 000 000</a></p>
+                            <p>Segunda a Sexta: 9h00 – 18h00</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">📍</div>
+                        <div>
+                            <h4>Morada</h4>
+                            <p>Rua Exemplo, n.º 100<br>1000-000 Lisboa<br>Portugal</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">🕐</div>
+                        <div>
+                            <h4>Horário de Atendimento</h4>
+                            <p>Segunda a Sexta: 9h00 – 18h00</p>
+                            <p>Sábado: 9h00 – 13h00</p>
+                            <p>Atendimento remoto disponível.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2>Envie-nos uma Mensagem</h2>
+                    <p class="form-subtitle">Preencha o formulário e entraremos em contacto brevemente.</p>
+
+                    <form id="contact-form" action="php/contact-simple.php" method="POST" novalidate>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-nome">Nome Completo <span aria-hidden="true">*</span></label>
+                                <input type="text" id="contact-nome" name="nome" required autocomplete="name" aria-required="true">
+                                <span class="error-message">Por favor, introduza o seu nome.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email <span aria-hidden="true">*</span></label>
+                                <input type="email" id="contact-email" name="email" required autocomplete="email" aria-required="true">
+                                <span class="error-message">Por favor, introduza um email válido.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-telefone">Telefone</label>
+                                <input type="tel" id="contact-telefone" name="telefone" autocomplete="tel">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-assunto">Assunto <span aria-hidden="true">*</span></label>
+                                <select id="contact-assunto" name="assunto" required aria-required="true">
+                                    <option value="">Selecione um assunto</option>
+                                    <option value="informacao-geral">Informação Geral</option>
+                                    <option value="direito-familia">Direito da Família</option>
+                                    <option value="direito-imobiliario">Direito Imobiliário</option>
+                                    <option value="herancas">Heranças e Sucessões</option>
+                                    <option value="contratos">Contratos</option>
+                                    <option value="documentacao">Documentação e Registos</option>
+                                    <option value="cobrancas">Cobranças</option>
+                                    <option value="nacionalidade">Nacionalidade e Cidadania</option>
+                                    <option value="fiscalidade">Fiscalidade</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                                <span class="error-message">Por favor, selecione um assunto.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-mensagem">Mensagem <span aria-hidden="true">*</span></label>
+                            <textarea id="contact-mensagem" name="mensagem" rows="6" required aria-required="true" placeholder="Descreva como podemos ajudá-lo..."></textarea>
+                            <span class="error-message">Por favor, escreva a sua mensagem.</span>
+                        </div>
+
+                        <div class="consent-group">
+                            <input type="checkbox" id="contact-consent" name="consent" required aria-required="true">
+                            <label for="contact-consent">Li e aceito a política de privacidade e autorizo o tratamento dos meus dados pessoais para efeitos de resposta ao meu pedido de contacto.</label>
+                        </div>
+
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                        </div>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div class="form-success" id="contact-success" role="alert">
+                        <h3>Mensagem Enviada!</h3>
+                        <p>Obrigado pelo seu contacto. Iremos responder em breve, no prazo máximo de 24 horas úteis.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>Solicitad<span class="accent">o</span>r</h4>
+                <p>Serviços de solicitadoria para cidadãos portugueses e emigrantes. Atendimento em português e francês.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Ligações Rápidas</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="consulta.html">Marcar Consulta</a></li>
+                    <li><a href="contactos.html">Contactos</a></li>
+                    <li><a href="index.html#sobre">Sobre Nós</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Serviços</h4>
+                <ul>
+                    <li><a href="services/direito-familia.html">Direito da Família</a></li>
+                    <li><a href="services/direito-imobiliario.html">Direito Imobiliário</a></li>
+                    <li><a href="services/herancas.html">Heranças e Sucessões</a></li>
+                    <li><a href="services/contratos.html">Contratos</a></li>
+                    <li><a href="services/documentacao.html">Documentação e Registos</a></li>
+                    <li><a href="services/cobrancas.html">Cobranças</a></li>
+                    <li><a href="services/nacionalidade.html">Nacionalidade e Cidadania</a></li>
+                    <li><a href="services/fiscalidade.html">Fiscalidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Email: <a href="mailto:info@solicitador.pt">info@solicitador.pt</a></p>
+                <p>Telefone: <a href="tel:+351200000000">+351 200 000 000</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Solicitador. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/content-loader.js"></script>
+</body>
+</html>
