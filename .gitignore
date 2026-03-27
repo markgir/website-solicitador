@@ -1,0 +1,17 @@
+# Database files
+data/*.db
+data/*.sqlite
+data/.setup_password
+
+# PHP sessions
+.sessions/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
