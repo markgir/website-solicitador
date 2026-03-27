@@ -204,9 +204,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* --- Active nav link highlight --- */
   var currentPath = window.location.pathname;
+  // Normalize trailing slash — treat "/" and "/index.html" as equivalent
+  var normalizedPath = currentPath.replace(/\/$/, '') || '/';
   var navLinks = document.querySelectorAll('.main-nav a');
   navLinks.forEach(function (link) {
-    if (link.getAttribute('href') && currentPath.includes(link.getAttribute('href'))) {
+    var href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http')) return;
+    // Build absolute path for the link href so comparison is unambiguous
+    var linkPath = new URL(href, window.location.href).pathname.replace(/\/$/, '') || '/';
+    if (linkPath === normalizedPath) {
       link.classList.add('active');
     }
   });
