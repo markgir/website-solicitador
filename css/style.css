@@ -265,6 +265,11 @@ img {
   margin: 0 auto;
 }
 
+/* --- Services Section --- */
+.services-section {
+  padding: 4rem 1.5rem;
+}
+
 /* --- Services Grid (Landing Page) --- */
 .services-grid {
   display: grid;
@@ -397,22 +402,37 @@ img {
 .about-section {
   background: var(--primary);
   color: var(--text-light);
-}
-
-.about-content {
-  max-width: 800px;
-  margin: 0 auto;
+  padding: 4rem 1.5rem;
   text-align: center;
 }
 
-.about-content .section-title {
+.about-section .container {
+  max-width: 800px;
+}
+
+.about-section .section-title {
   color: var(--text-light);
 }
 
-.about-content p {
+.about-section p {
   font-size: 1.05rem;
   opacity: 0.9;
   margin-bottom: 1rem;
+}
+
+.about-section .btn {
+  margin-top: 1.5rem;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* --- Consultation / Booking Page --- */
